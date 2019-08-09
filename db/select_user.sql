@@ -1,4 +1,4 @@
-SELECT (username, user_password) FROM h_users
+SELECT username, user_password FROM h_users
 WHERE
 username = ${username}
 AND

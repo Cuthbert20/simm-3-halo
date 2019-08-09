@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import {connect} from 'react-redux'
+import {displayUser} from '../../ducks/reducer'
 
-export default class Auth extends Component {
+class Auth extends Component {
     state={
         username:'',
         user_password:''
@@ -33,24 +35,26 @@ export default class Auth extends Component {
         const {username, user_password} = this.state
         axios.post('/auth/login', {username, user_password})
         .then(res => {
-            this.setState({
-                username: '',
-                user_password: ''
-            })
+            this.props.displayUser(username, user_password)//fix this!!!!!!!!!
+            // console.log(res.data[0])
+            // this.setState({
+            //     username: res.data[0].username,
+            //     user_password: res.data[0].user_password
+            // })
         })
         .catch(err => {
             alert(err, "not yet registered, register before login")
         })
     }
-    componentWillUnmount(){
-        // console.log(this)
-        this.setState({
-            username: '',
-            user_password: ''
-        })
-    }
+    // componentWillUnmount(){
+    //     // console.log(this)
+    //     this.setState({
+    //         username: '',
+    //         user_password: ''
+    //     })
+    // }
     render() {
-        
+        console.log(this.props.displayUser)
         return (
             <div>
                 Auth
@@ -62,3 +66,5 @@ export default class Auth extends Component {
         )
     }
 }
+
+export default connect(null,{displayUser})(Auth)

@@ -12,16 +12,11 @@ class Nav extends Component{
         return(
             <div>
                 Nav
-                {/* {this.props.username.map(elm => {
-                    return(
-                        <div></div>
-                    )
-                })} */}
                 <div className='username' >
                     {username}
                 </div>
                 <div className='user-image' >
-                    {user_image}
+                  <img src={user_image} alt="Cool img"/>  
                 </div>
                 
                 <Link to='/dashboard' ><button>Home</button></Link>
