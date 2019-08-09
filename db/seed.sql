@@ -8,6 +8,14 @@ user_image VARCHAR(600)
 
 SELECT * FROM h_users;
 
+SELECT (username, user_password) FROM h_users;
+
+SELECT (username, user_password) FROM h_users
+WHERE
+username = 'a'
+AND
+user_password = 'a';
+
 INSERT INTO h_users(username, user_password, user_image)
 VALUES
 ('Dad', '1234', 'https://comicvine1.cbsistatic.com/uploads/scale_small/0/40/322001-149958-roland-deschain.jpg')
