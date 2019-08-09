@@ -19,7 +19,7 @@ export default class Auth extends Component {
         const {username, user_password} = this.state
         axios.post('/auth/register', {username, user_password})
         .then(res => {
-            console.log(res.data[0])
+            // console.log(res.data[0])
             this.setState({
                 username: '',
                 user_password: ''
@@ -50,6 +50,7 @@ export default class Auth extends Component {
         })
     }
     render() {
+        
         return (
             <div>
                 Auth
